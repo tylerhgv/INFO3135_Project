@@ -1,0 +1,48 @@
+Content in each pages: (* -> can be remove)
+- Welcome Page: (?)
+- Login:
+- Home:
+	- Discover tab:
+		- Related people (nearby, similar interests, same dog breed)
+		- Related groups
+		- Related events
+	- My Groups tab: (list of the user's groups)
+		- Create new group button
+	- My Events tab: (upcoming events)
+		- Sort by dates
+		- Sort by groups
+		- Create new event button
+- User Profile:
+	- Name, profile pic, birthday, location
+	- Bio, interests
+	- Dogs profile:
+		- Name, gender, breed
+		- Bio
+		- Birthday/Adopted date (?)
+	- Groups joined & events hosted/participated
+	- Edit Profile button
+	- *Invite button
+- Group: (a specific group)
+	- Name, description, topic
+	- Profile pic
+	- Members & mods
+	- Events
+	- Shared photos
+	- Join group button (if not a member, *send a request to mod)
+- Event: (a specific event)
+	- Name, topic, group
+	- Location, time, hosted by
+	- Is private (event can be seen by members of a group)
+	- Participators
+- Navbar: (in all page)
+	- Shortcuts to home, profile, groups, events
+	- *User's notification (invites to group & event, 
+	join requests for mods, a new member joined a group) 
+
+Useful Designs for Reference
+- Facebook's Group & Event pages
+- Reddit Home page (top navbar design)
+- Twitter Home page (left navbar design)
+- Tinder Web Home page (left navbar design)
+- KPU Moodle's Dashboard (groups and events can use the design similar
+to courses and assignments)
