@@ -38,6 +38,8 @@ Content in each pages: (* -> can be remove)
 	- Shortcuts to home, profile, groups, events
 	- *User's notification (invites to group & event, 
 	join requests for mods, a new member joined a group) 
+- My Group: list of groups, search bar for group
+- My Event: 
 
 Useful Designs for Reference
 - Facebook's Group & Event pages
