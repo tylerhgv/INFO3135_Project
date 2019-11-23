@@ -1,0 +1,38 @@
+DogApp
+│   db.sql						- Database creation file
+│   index.php					- Main controller
+│   pageContent.txt	
+│   README.md
+├───auth						
+│       signin.php
+│       signout.php
+│       signup.php
+├───home						- User is redirected here after successful login
+│   │   index.php				- Home controller
+│   │   home.php				- View for home page
+│   ├───event
+│   │       event_add.php		- View for adding event
+│   │       event_edit.php		- View for editing event
+│   │       event_list.php		- View for listing events (initial view)
+│   │       event_view.php		- View for a single event
+│   │       index.php			- Event controller
+│   ├───group
+│   │       group_add.php		- View for adding group
+│   │       group_edit.php		- View for editing group
+│   │       group_list.php		- View for listing groups (initial view)
+│   │       group_view.php		- View for a single group
+│   │       index.php			- Group controller
+│   └───profile
+│           index.php			- Profile controller
+│           profile_edit.php	- View for editing profile
+│           profile_view.php	- View for viewing profile (initial view)
+├───model
+│       database.php			- Database connection
+│       dog_db.php				- Functions for interacting with dog DB
+│       event_db.php			- Functions for interacting with event DB
+│       group_db.php			- Functions for interacting with group DB
+│       interest_db.php			- Functions for interacting with interest DB
+│       user_db.php				- Functions for interacting with user DB
+└───views
+        footer.php
+        header.php
