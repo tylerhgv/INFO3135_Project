@@ -36,7 +36,7 @@ if($stage == 1){
     }
 
     $profile_pic = $user_id . "_" . preg_replace ("/\s+/ ", "_", $profile_pic);
-    $profilePicStorage = "../home/profile/profilePictures/".basename($profile_pic);
+    $profilePicStorage = "../home/profile/profilePics/".basename($profile_pic);
     $location = $location_city . ", " . $location_province . ", " . $location_country;
 
     updateUserProfile($user_id, $profile_pic, $biography, $location);

@@ -17,7 +17,7 @@ include '../../views/header.php';
 
 <h1>WELCOME BACK</h1>
 
-<img src="../../auth/profilePictures/<?php echo $_SESSION['profile_pic']; ?>">
+<img src="profilePics/<?php echo $_SESSION['profile_pic']; ?>">
 <a href="profile_edit.php">Edit Profile</a>
 
 
