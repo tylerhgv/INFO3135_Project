@@ -34,7 +34,7 @@ if(empty($profile_pic)){
 }else {
     $profile_pic = $user_id . "_" . preg_replace ("/\s+/ ", "_", $profile_pic);
 }
-$profilePicStorage = "../../auth/profilePictures/".basename($profile_pic);
+$profilePicStorage = "profilePictures/".basename($profile_pic);
 $location = $location_city . ", " . $location_province . ", " . $location_country;
 
 updateUserProfile($user_id, $profile_pic, $biography, $location);
