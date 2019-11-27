@@ -11,14 +11,3 @@ define('DB_NAME', 'dogAppDB');
         die("ERROR: Could not connect. " . $e->getMessage());
     }
 ?>
-
-<!--
-This is the SQL command to create the user table
-
-CREATE TABLE users (
-userId int(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-userName varchar(15) NOT NULL,
-userPass varchar(255) NOT NULL
-);
-
--->

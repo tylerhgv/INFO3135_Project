@@ -1,10 +1,7 @@
-<?php include '../views/header.php'; ?>
+<?php 
+session_start();
+echo session_id();
 
-<h1>WELCOME BACK</h1>
+echo '<a href="profile/index.php">Profile</a>'
 
-<?php
-    echo $_SESSION['signedin'] . '<br>';
-    echo $_SESSION['username'];
 ?>
-
-<?php include '../views/footer.php'; ?>

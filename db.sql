@@ -6,6 +6,7 @@ CREATE TABLE user (
 	userID INT AUTO_INCREMENT NOT NULL,
     fName NVARCHAR(255),
     lName NVARCHAR(255),
+    hasProfile BOOL DEFAULT false,
     dob DATE,
     bio TEXT,
     profilePic VARCHAR(255),
