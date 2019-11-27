@@ -14,7 +14,7 @@ if($stage == 1){
     $dob_day = filter_input(INPUT_POST, 'dob_day');
     $dob_year = filter_input(INPUT_POST, 'dob_year');
 
-    if ($first_name == NULL || $last_name == NULL || $email == NULL || $dob_month == NULL || $dob_day == NULL || $dob_year == NULL) {
+    if (empty($first_name) || empty($last_name) || empty($email) || empty($dob_month) || empty($dob_day) || empty($dob_year)) {
         header('location: registrationpage.php?stage=1&message=emptyfields');
         exit();
     }
@@ -29,6 +29,11 @@ if($stage == 1){
     $location_country = filter_input(INPUT_POST, 'country');
     $location_province = filter_input(INPUT_POST, 'province');
     $location_city = filter_input(INPUT_POST, 'city');
+
+    if(empty($user_id) || empty($profile_pic) || empty($biography) || empty($location_country) || empty($location_province) || empty($location_city)){
+        header('location: registrationpage.php?stage=2&message=emptyfields');
+        exit();
+    }
 
     $profile_pic = $user_id . "_" . preg_replace ("/\s+/ ", "_", $profile_pic);
     $profilePicStorage = "profilePictures/".basename($profile_pic);
@@ -54,6 +59,7 @@ if($stage == 1){
 
     if(empty($user_id) || empty($dog_name) || empty($dog_breed) || empty($dog_gender) || empty($dog_dob_month) || empty($dog_dob_day) || empty($dog_dob_year) || empty($dog_adopt_month) || empty($dog_adopt_day) || empty($dog_adopt_year)){
         header('location: registrationpage.php?stage=3&message=emptyfields');
+        exit();
     }
 
     $dog_dob = $dog_dob_year . "-" . $dog_dob_month . "-" . $dog_dob_day;
