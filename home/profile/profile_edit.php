@@ -1,5 +1,5 @@
 <?php 
-include '../../views/header.php' ; 
+include '../../view/header.php' ; 
 include '../../auth/formerrors.php';
 
   // If the user is already signed in, send them to the home page
@@ -261,5 +261,5 @@ include '../../auth/formerrors.php';
     document.querySelector('#state_<?php echo $state ?>').setAttribute("selected", "selected");
     document.querySelector('#country_<?php echo $country ?>').setAttribute("selected", "selected");
 </script>
-<?php include '../../views/footer.php'; ?>
+<?php include '../../view/footer.php'; ?>
 

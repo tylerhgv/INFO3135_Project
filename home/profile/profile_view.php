@@ -1,5 +1,5 @@
 <?php 
-include '../../views/header.php';
+include '../../view/header.php';
 
     //check if the person has created their profile
     if($_SESSION['hasProfile'] == 0){
@@ -21,4 +21,4 @@ include '../../views/header.php';
 <a href="profile_edit.php">Edit Profile</a>
 
 
-<?php include '../../views/footer.php'; ?>
+<?php include '../../view/footer.php'; ?>

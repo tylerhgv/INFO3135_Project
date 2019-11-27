@@ -1,5 +1,5 @@
 <?php 
-include '../views/header.php' ; 
+include '../view/header.php' ; 
 include 'formerrors.php';
 include 'progressbar.php';
 
@@ -546,4 +546,4 @@ include 'progressbar.php';
 </div>
 <?php 
 
-include '../views/footer.php'; ?>
+include '../view/footer.php'; ?>

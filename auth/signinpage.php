@@ -1,5 +1,5 @@
 <?php 
-include '../views/header.php' ;
+include '../view/header.php' ;
 include 'formerrors.php'; 
 
   // If the user is already signed in, send them to the home page
@@ -31,4 +31,4 @@ include 'formerrors.php';
       </div>
     </form>
 </div>
-<?php include '../views/footer.php'; ?>
+<?php include '../view/footer.php'; ?>
