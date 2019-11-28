@@ -1,6 +1,6 @@
-<?php 
+<?php
 include '../view/header.php' ;
-include 'formerrors.php'; 
+include 'formerrors.php';
 
   // If the user is already signed in, send them to the home page
   if(isset($_SESSION['signedin']) && $_SESSION['signedin'] === true){
@@ -16,17 +16,17 @@ include 'formerrors.php';
         <input type="hidden" name="stage" value="1">
         <div class="form-group mb-4">
             <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" name="username" aria-describedby="usernameHelp" placeholder="Enter Username" value="<?php if(isset($_GET['username'])){ echo $_GET['username']; } ?>">
+            <input type="text" class="form-control" id="inputUsername" name="username" aria-describedby="usernameHelp" placeholder="Enter Username" value="<?php if(isset($_GET['username'])){ echo $_GET['username']; } ?>" required>
             <small id="usernameHelp" class="form-text text-muted">Enter a username that you will remember. This will be used to sign in to your account.</small>
         </div>
         <div class="form-group mb-4">
             <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" name="password" aria-describedby="passwordHelp" placeholder="Enter Password">
+            <input type="password" class="form-control" id="inputPassword" name="password" aria-describedby="passwordHelp" placeholder="Enter Password" minlength="7" required>
             <small id="passwordHelp" class="form-text text-muted">Enter a password that is a minimum of 7 characters long. Make it something strong that can't easily be guessed.</small>
         </div>
         <div class="form-group mb-4">
             <label for="inputPasswordMatch">Re-type Password</label>
-            <input type="password" class="form-control" id="inputPasswordMatch" name="password_match" aria-describedby="passwordMatchHelp" placeholder="Password">
+            <input type="password" class="form-control" id="inputPasswordMatch" name="password_match" aria-describedby="passwordMatchHelp" placeholder="Password" minlength="7" required>
             <small id="passwordMatchHelp" class="form-text text-muted">Enter in the same password that you typed above.</small>
         </div>
         <div class="form-group mt-5">
