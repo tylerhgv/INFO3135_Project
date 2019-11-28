@@ -1,7 +1,7 @@
-<?php 
+<?php
 include '../../views/header.php';
 
-include 'auth/formerrors.php'
+include 'auth/formerrors.php';
 
-include '../../views/footer.php'; 
+include '../../views/footer.php';
 ?>
