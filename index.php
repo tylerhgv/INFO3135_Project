@@ -1,4 +1,23 @@
-<?php include 'view/header.php' ; ?>
-<h3>Home Page</h3>
-<p>This is the page that is shown before a user signs in</p>
-<?php include 'view/footer.php'; ?>
+<?php
+// script to handle header action
+if(isset($_GET['action']) && $_GET['action'] != ""){
+    $action = $_GET['action'];
+    if(isset($action) && $action != ""){
+        switch($action){
+            case "signin":
+                header('location: auth/signinpage.php');
+                break;
+            case "signup":
+                header('location: auth/signuppage.php');
+                break;
+            case "home":
+            default:
+                header('location: welcome.php');
+                exit();
+        }
+    }
+} else {
+  header('location: welcome.php');
+  exit();
+}
+?>
