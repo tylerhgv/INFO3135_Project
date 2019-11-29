@@ -41,6 +41,7 @@ include '../../view/header.php';
       <div class="card mt-3">
         <h4 class="card-header"><?php echo $_SESSION['profile_fName']; ?>'s Dogs</h4>
         <div class="card-body p-3 right-scroll">
+          <?php $dog_index = 0;?>
           <?php foreach($_SESSION['profile_dogs'] as $dog){ ?>
             <div class="card mb-3">
               <div class="card-body">
@@ -49,8 +50,13 @@ include '../../view/header.php';
                 <p class="card-text"><b>Gender: </b><?php echo $dog['gender'];?></p>
                 <p class="card-text"><b>Date of Birth: </b><?php echo $dog['dob'];?></p>
                 <p class="card-text"><b>Adopted Date: </b><?php echo $dog['adoptedDate'];?></p>
+                <form action="dog_edit.php" method="post">
+                <input type="hidden" name="dog_index" value="<?php echo $dog_index; ?>">
+                    <button type="submit" class="btn btn-primary link">Edit Dog</button>
+                </form>
               </div>
             </div>
+           <?php $dog_index = $dog_index + 1;?>
           <?php } ?>
         </div>
       </div>

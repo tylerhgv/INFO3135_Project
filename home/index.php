@@ -26,7 +26,7 @@ if(isset($_GET['action']) && $_GET['action'] != ""){
                 break;
             case "home":
             default:
-                header('location: home.php');
+                header('location: ../home/home.php');
                 exit();
         }
     }

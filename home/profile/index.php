@@ -15,9 +15,6 @@ require('../../model/dog_db.php');
     $user_profile = getUserProfile($_SESSION['userId']);
     $user_dogs = getDog($_SESSION['userId']);
 
-    if(empty($user_profile)){
-        header('location: ../../views/error.php?message=profilenotfound');
-    }else {
         //set the data to session variables
         $_SESSION['profile_fName'] = $user_profile['fName'];
         $_SESSION['profile_lName'] = $user_profile['lName'];
@@ -28,10 +25,6 @@ require('../../model/dog_db.php');
         $_SESSION['profile_email'] = $user_profile['email'];
         $_SESSION['profile_num_of_dogs'] = count($user_dogs);
         $_SESSION['profile_dogs'] = $user_dogs;
-
-        //for each dog a person has, add the session variables
-
-    }
 
     // script to handle header action
     if(isset($_GET['action']) && $_GET['action'] != ""){
