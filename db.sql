@@ -45,7 +45,6 @@ CREATE TABLE event (
     description TEXT,
     location NVARCHAR(255),
     time DATETIME,
-    isPrivate BOOL,
     groupID INT,
     PRIMARY KEY (eventID),
     INDEX (eventID),

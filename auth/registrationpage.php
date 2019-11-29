@@ -1,8 +1,10 @@
-<?php 
-include '../view/header.php' ; 
+<?php
+include '../view/header.php' ;
 include 'formerrors.php';
 include 'progressbar.php';
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
   // If the user is already signed in, send them to the home page
   if(!isset($_SESSION['signedin']) && $_SESSION['signedin'] !== true){
         header('location: signinpage.php?message=mustbesignedin&redirect=registrationpage.php?stage=1');
@@ -554,6 +556,6 @@ include 'progressbar.php';
     <?php } ?>
 
 </div>
-<?php 
+<?php
 
 include '../view/footer.php'; ?>
