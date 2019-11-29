@@ -12,7 +12,16 @@ include '../../view/header.php';
         echo $_SESSION['profile_pic'] . '<br>';
         echo $_SESSION['profile_bio'] . '<br>';
         echo $_SESSION['profile_location'] . '<br>';
-        echo $_SESSION['profile_email'];
+        echo $_SESSION['profile_email'] . '<br>';
+
+        foreach($_SESSION['profile_dogs'] as $dog){
+            echo $dog['name'] . '<br>';
+            echo $dog['breed'] . '<br>';
+            echo $dog['gender'] . '<br>';
+            echo $dog['dob'] . '<br>';
+            echo $dog['adoptedDate'] . '<br>';
+        }
+
 ?>
 
 <h1>WELCOME BACK</h1>

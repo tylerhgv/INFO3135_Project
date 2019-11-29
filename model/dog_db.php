@@ -14,4 +14,20 @@ function createDog($user_id, $dog_name, $dog_breed, $dog_gender, $dog_dob, $dog_
     $statement->closeCursor();
 }
 
+function getDog($user_id){
+    global $db;
+    $query = "SELECT * FROM dog
+                WHERE userID = :user_id";
+    if($statement = $db->prepare($query)){
+        $statement->bindValue(':user_id', $user_id);
+        if($statement->execute()){
+            if($dogs = $statement->fetchAll()){
+                $statement->closeCursor();
+                return $dogs;
+            }
+        }
+    }
+    return NULL;
+}
+
 ?>

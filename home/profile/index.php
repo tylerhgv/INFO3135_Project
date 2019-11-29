@@ -1,6 +1,7 @@
 <?php
 require('../../model/database.php');
 require('../../model/user_db.php');
+require('../../model/dog_db.php');
 
     session_start();
 
@@ -12,6 +13,7 @@ require('../../model/user_db.php');
 
     //get the user's profile data
     $user_profile = getUserProfile($_SESSION['userId']);
+    $user_dogs = getDog($_SESSION['userId']);
 
     if(empty($user_profile)){
         header('location: ../../views/error.php?message=profilenotfound');
@@ -24,6 +26,12 @@ require('../../model/user_db.php');
         $_SESSION['profile_bio'] = $user_profile['bio'];
         $_SESSION['profile_location'] = $user_profile['location'];
         $_SESSION['profile_email'] = $user_profile['email'];
+        $_SESSION['profile_num_of_dogs'] = count($user_dogs);
+        $_SESSION['profile_dogs'] = $user_dogs;
+
+        //for each dog a person has, add the session variables
+        
+        
 
         //Load the profile page
         header('location: profile_view.php');
