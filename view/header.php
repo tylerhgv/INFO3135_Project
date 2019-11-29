@@ -19,9 +19,9 @@
         <div class="navbar-nav">
           <a class="nav-link" href="index.php?action=home">Home</a>
           <a class="nav-link" href="index.php?action=profile">Profile</a>
-          <a class="nav-link" href="index.php?action=groups">Groups</a>
-          <a class="nav-link" href="index.php?action=events">Event</a>
-          <a class="nav-link" href="index.php?action=logout">Logout</a>
+          <a class="nav-link" href="index.php?action=group">Group</a>
+          <a class="nav-link" href="index.php?action=event">Event</a>
+          <a class="nav-link" href="index.php?action=signout">Sign Out</a>
         </div>
       <?php } else { ?>
         <div class="navbar-nav">
