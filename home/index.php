@@ -13,7 +13,7 @@ if(isset($_GET['action']) && $_GET['action'] != ""){
     if(isset($action) && $action != ""){
         switch($action){
             case "profile":
-                header('location: profile.index.php');
+                header('location: profile/index.php');
                 break;
             case "group":
                 header('location: group/index.php');
