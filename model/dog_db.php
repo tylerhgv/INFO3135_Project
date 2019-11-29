@@ -51,8 +51,14 @@ function updateDog($dog_id, $dog_name, $dog_breed, $dog_gender, $dog_dob, $dog_a
 }
 
 
-function deleteDog(){
-
+function deleteDog($dog_id){
+        global $db;
+    $query = "DELETE FROM dog
+                WHERE dogID = :dog_id";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':dog_id', $dog_id);
+    $statement->execute();
+    $statement->closeCursor();
 }
 
 ?>

@@ -26,8 +26,7 @@ include '../../auth/formerrors.php';
     $adopted_day = $adopted_date[2];
  ?>
 
-<form action="update_dog.php" method="post" class="col-md-6">
-        <input type="hidden" name="stage" value="3">
+<form action="manage_dog.php?action=edit" method="post" class="col-md-6">
         <input type="hidden" name="dog_id" value="<?php echo $dog['dogID']; ?>">
             <div class="form-group mb-4">
                 <label for="inputDogName">Name</label>
