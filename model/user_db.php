@@ -56,7 +56,7 @@ function getUserProfile($user_id){
 
 function updateUserDetails($user_id, $first_name, $last_name, $email, $dob){
     global $db;
-    $query = "UPDATE user 
+    $query = "UPDATE user
             SET fName = :first_name,
                 lName = :last_name,
                 email = :email,
@@ -74,7 +74,7 @@ function updateUserDetails($user_id, $first_name, $last_name, $email, $dob){
 
 function updateUserProfile($user_id, $profile_pic, $biography, $location){
     global $db;
-    $query = "UPDATE user 
+    $query = "UPDATE user
             SET profilePic = :profile_pic,
                 bio = :biography,
                 location = :location
@@ -90,7 +90,7 @@ function updateUserProfile($user_id, $profile_pic, $biography, $location){
 
 function finalizeProfile($user_id, $has_profile){
     global $db;
-    $query = "UPDATE user 
+    $query = "UPDATE user
             SET hasProfile = :has_profile
             WHERE userId = :user_id;";
     $statement = $db->prepare($query);
@@ -110,7 +110,7 @@ function checkPasswords($unhashed_pass, $hashed_pass){
 
 function modify_user_interest($userID,$interests){
     global $db;
-    for ($i=0;$i<INTEREST_COUNT;$i++)) {
+    for ($i=0;$i<INTEREST_COUNT;$i++) {
         if (in_array($i, $interests) && (!exist_user_interest($userID,$i))){
             $query = 'INSERT INTO userInterest
                     VALUES(:userID,:interestID)';
