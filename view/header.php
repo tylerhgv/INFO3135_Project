@@ -10,7 +10,6 @@
       <link rel="stylesheet" type="text/css" href=<?php echo($_SESSION['css']);?>>
   </head>
   <body>
-    <?php session_start(); ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-end">
       <a class="navbar-brand mr-auto" href="index.php?action=home">DogApp</a>
       <?php
