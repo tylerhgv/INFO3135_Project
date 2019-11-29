@@ -16,6 +16,7 @@ include '../../auth/formerrors.php';
         <h4 class="card-header">Profile</h4>
         <div class="list-group list-group-flush">
           <a href="profile_edit.php" class="list-group-item list-group-item-action">Edit Profile</a>
+          <a href="dog_add.php" class="list-group-item list-group-item-action">Add Dog</a>
         </div>
       </div>
     </div>
