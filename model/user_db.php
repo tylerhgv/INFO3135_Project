@@ -107,4 +107,57 @@ function checkPasswords($unhashed_pass, $hashed_pass){
         return false;
     }
 }
+
+function modify_user_interest($userID,$interests){
+    global $db;
+    for ($i=0;$i<INTEREST_COUNT;$i++)) {
+        if (in_array($i, $interests) && (!exist_user_interest($userID,$i))){
+            $query = 'INSERT INTO userInterest
+                    VALUES(:userID,:interestID)';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':userID',$userID);
+            $statement->bindValue(':interestID',$i);
+            $statement->execute();
+            $statement->closeCursor();
+        }
+        elseif ((!in_array($i, $interests)) && exist_user_interest($userID,$i) ) {
+            $query = 'DELETE FROM userInterest
+                    WHERE userID = :userID AND interestID = :interestID';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':userID',$userID);
+            $statement->bindValue(':interestID',$i);
+            $statement->execute();
+            $statement->closeCursor();
+        }
+    }
+}
+
+#check if a user has a specific interest
+function exist_group_interest($userID,$interestID){
+    global $db;
+    $query = 'SELECT * FROM userInterest
+            WHERE userID = :userID AND interestID = :interestID';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':userID',$userID);
+            $statement->bindValue(':interestID',$interestID);
+            $statement->execute();
+            $if_exist = $statement->fetch();
+            $statement->closeCursor();
+            if ($if_exist != NULL)
+                return TRUE;
+            else
+                return FALSE;
+}
+
+function list_userID_by_interest($interestID){
+    global $db;
+    $query = 'SELECT userID FROM userInterest
+            WHERE interestID = :interestID';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':interestID',$interestID);
+            $statement->execute();
+            $userIDs = $statement->fetchAll();
+            $statement->closeCursor();
+            return $userIDs;
+}
 ?>
