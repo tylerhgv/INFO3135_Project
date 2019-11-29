@@ -41,5 +41,6 @@ include '../../auth/formerrors.php';
 
 <img src="profilePics/<?php echo $_SESSION['profile_pic']; ?>">
 <a href="profile_edit.php">Edit Profile</a>
+<a href="dog_add.php">Add Dog</a>
 
 <?php include '../../view/footer.php'; ?>
