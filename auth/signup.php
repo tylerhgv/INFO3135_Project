@@ -32,7 +32,7 @@ else {
     addNewUser($username, $hashed_pass);
 
     //On success, send the user the the second page of the registration
-    header('location: signinpage.php');
+    header('location: signinpage.php?message=createdaccount');
 }
 
 ?>

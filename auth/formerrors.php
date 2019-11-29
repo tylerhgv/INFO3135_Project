@@ -45,7 +45,7 @@
         //Other Messages
             //Sign in page
             case "createdaccount":
-                $display_message = "Your account has been created!";
+                $display_message = "Your account has been created! Please sign in to continue.";
                 echo '
                     <div class="alert alert-success">
                         ' . $display_message . '
