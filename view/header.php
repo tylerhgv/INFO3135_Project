@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html lang="en">
   <head>
       <meta charset="UTF-8">
@@ -6,7 +7,7 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Dog App</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" type="text/css" href=<?php echo($_SESSION['css']);?>>
   </head>
   <body>
     <?php session_start(); ?>
