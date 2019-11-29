@@ -1,5 +1,6 @@
 <?php
 include '../../view/header.php';
+include '../../auth/formerrors.php';
 
     //check if the person has created their profile
     if($_SESSION['hasProfile'] == 0){
@@ -50,10 +51,22 @@ include '../../view/header.php';
                 <p class="card-text"><b>Gender: </b><?php echo $dog['gender'];?></p>
                 <p class="card-text"><b>Date of Birth: </b><?php echo $dog['dob'];?></p>
                 <p class="card-text"><b>Adopted Date: </b><?php echo $dog['adoptedDate'];?></p>
-                <form action="dog_edit.php" method="post">
-                <input type="hidden" name="dog_index" value="<?php echo $dog_index; ?>">
-                    <button type="submit" class="btn btn-primary link">Edit Dog</button>
-                </form>
+                <div class="container-fluid">
+                  <div class="row w-100 m-0">
+                    <div class="col-6">
+                      <form class="form-inline" action="dog_edit.php" method="post">
+                      <input type="hidden" name="dog_index" value="<?php echo $dog_index; ?>">
+                          <button type="submit" class="btn btn-primary link">Edit Dog</button>
+                      </form>
+                    </div>
+                    <div class="col-6">
+                      <form class="form-inline" action="manage_dog.php?action=delete" method="post">
+                      <input type="hidden" name="dog_id" value="<?php echo $dog['dogID']; ?>">
+                          <button type="submit" name="dog_delete" class="btn btn-danger link">Delete Dog</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
            <?php $dog_index = $dog_index + 1;?>

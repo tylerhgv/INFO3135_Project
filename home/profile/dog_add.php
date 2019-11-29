@@ -7,34 +7,18 @@ include '../../auth/formerrors.php';
         header('location: ../../auth/signinpage.php?message=mustbesignedin&redirect=../../home/profile/profile_edit.php');
         exit();
   }
-    //get the dogs id passed in the edit dog button
-    $dog_index = filter_input(INPUT_POST, 'dog_index');
 
-    //use $dog_id to retrieve to correct dogs information from the session variable
-    $dog = $_SESSION['profile_dogs'][$dog_index];
-
-    //get the dogs dob
-    $dob = explode("-", $dog['dob']);
-    $dob_year = $dob[0];
-    $dob_month = $dob[1];
-    $dob_day = $dob[2];
-
-    //get the dogs adopted date
-    $adopted_date = explode("-", $dog['adoptedDate']);
-    $adopted_year = $adopted_date[0];
-    $adopted_month = $adopted_date[1];
-    $adopted_day = $adopted_date[2];
  ?>
 
-<form action="manage_dog.php?action=edit" method="post" class="col-md-6">
-        <input type="hidden" name="dog_id" value="<?php echo $dog['dogID']; ?>">
+<form action="manage_dog.php?action=add" method="post" class="col-md-6">
+        <input type="hidden" name="user_id" value="<?php echo  $_SESSION['userId']; ?>">
             <div class="form-group mb-4">
                 <label for="inputDogName">Name</label>
-                <input type="text" class="form-control" id="inputDogName" name="dog_name" aria-describedby="dogNameHelp" value="<?php echo $dog['name']; ?>">
+                <input type="text" class="form-control" id="inputDogName" name="dog_name" aria-describedby="dogNameHelp" placeholder="Enter Dog's Name">
             </div>
             <div class="form-group mb-4">
                 <label for="inputDogBreed">Breed</label>
-                <input type="text" class="form-control" id="inputDogBreed" name="dog_breed" aria-describedby="dogBreedHelp" value="<?php echo $dog['breed']; ?>">
+                <input type="text" class="form-control" id="inputDogBreed" name="dog_breed" aria-describedby="dogBreedHelp" placeholder="Enter Dog's Breed">
             </div>
             <div class="form-group mb-4">
                 <label>Gender</label><br>
@@ -51,7 +35,7 @@ include '../../auth/formerrors.php';
             <div class="form-group mb-4 d-flex align-items-row" id="dobPick">
                 <div>
                     <select class="custom-select" id="inputDobMonth" name="dog_dob_month">
-                        <option disabled>Select Month...</option>
+                        <option selected disabled>Select Month...</option>
                         <option id="dob_month_01" value="01">January</option>
                         <option id="dob_month_02" value="02">February</option>
                         <option id="dob_month_03" value="03">March</option>
@@ -68,7 +52,7 @@ include '../../auth/formerrors.php';
                 </div>
                 <div class="pl-5 pr-5">
                     <select class="custom-select" id="inputDobDay" name="dog_dob_day">
-                        <option disabled>Select Month...</option>
+                        <option selected disabled>Select Month...</option>
                         <option id="dob_day_01" value="01">1</option>
                         <option id="dob_day_02" value="02">2</option>
                         <option id="dob_day_03" value="03">3</option>
@@ -104,7 +88,7 @@ include '../../auth/formerrors.php';
                 </div>
                 <div>
                     <select class="custom-select" id="inputDobYear" name="dog_dob_year">
-                        <option disabled>Select Year...</option>
+                        <option selected disabled>Select Year...</option>
                         <option id="dob_year_2019" value="2019">2019</option>
                         <option id="dob_year_2018" value="2018">2018</option>
                         <option id="dob_year_2017" value="2017">2017</option>
@@ -142,7 +126,7 @@ include '../../auth/formerrors.php';
             <div class="form-group mb-4 d-flex align-items-row" id="dogAdoptDate">
                 <div>
                     <select class="custom-select" id="inputDogAdoptMonth" name="dog_adopt_month">
-                        <option disabled>Select Month...</option>
+                        <option selected disabled>Select Month...</option>
                         <option id="adopted_month_01" value="01">January</option>
                         <option id="adopted_month_02" value="02">February</option>
                         <option id="adopted_month_03" value="03">March</option>
@@ -159,7 +143,7 @@ include '../../auth/formerrors.php';
                 </div>
                 <div class="pl-5 pr-5">
                     <select class="custom-select" id="inputDogAdoptDay" name="dog_adopt_day">
-                        <option disabled>Select Month...</option>
+                        <option selected disabled>Select Month...</option>
                         <option id="adopted_day_01" value="01">1</option>
                         <option id="adopted_day_02" value="02">2</option>
                         <option id="adopted_day_03" value="03">3</option>
@@ -195,7 +179,7 @@ include '../../auth/formerrors.php';
                 </div>
                 <div>
                     <select class="custom-select" id="inputDogAdoptYear" name="dog_adopt_year">
-                        <option disabled>Select Year...</option>
+                        <option selected disabled>Select Year...</option>
                         <option id="adopted_year_2019" value="2019">2019</option>
                         <option id="adopted_year_2018" value="2018">2018</option>
                         <option id="adopted_year_2017" value="2017">2017</option>
@@ -234,21 +218,4 @@ include '../../auth/formerrors.php';
             </div>
         </form>
 
-<script>
-    //Auto fill gender radios
-    <?php if($dog['gender'] === 'Female'){ ?>
-        document.querySelector('#inputDogGenderFemale').setAttribute("checked", "checked");
-    <?php }else if($dog['gender'] === 'Male'){ ?>
-        document.querySelector('#inputDogGenderMale').setAttribute("checked", "checked");
-    <?php } ?>
-    //Auto fill dob select boxes
-    document.querySelector('#dob_year_<?php echo $dob_year ?>').setAttribute("selected", "selected");
-    document.querySelector('#dob_month_<?php echo $dob_month ?>').setAttribute("selected", "selected");
-    document.querySelector('#dob_day_<?php echo $dob_day ?>').setAttribute("selected", "selected");
-    //Auto fill adopted Date select boxes
-    document.querySelector('#adopted_year_<?php echo $adopted_year ?>').setAttribute("selected", "selected");
-    document.querySelector('#adopted_month_<?php echo $adopted_month ?>').setAttribute("selected", "selected");
-    document.querySelector('#adopted_day_<?php echo $adopted_day ?>').setAttribute("selected", "selected");
-
-</script>
 <?php include '../../view/footer.php'; ?>

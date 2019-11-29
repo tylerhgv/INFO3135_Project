@@ -42,6 +42,15 @@
             case "profilenotfound":
                 $display_message = "The profile you are looking for could not be found.";
                 break;
+            //Profile Page
+            case "dogdeleted":
+                $display_message = "You have successfully deleted a dog, we are sorry to see them go";
+                echo '
+                    <div class="alert alert-success">
+                        ' . $display_message . '
+                    </div>
+                ';
+                goto end;
         //Other Messages
             //Sign in page
             case "createdaccount":

@@ -3,7 +3,11 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
+//Check if the user is signed in
+if(empty($_SESSION['signedin']) || $_SESSION['signedin'] != true){
+    header('location: ../index.php');
+    exit();
+}
 ?>
 <!-- Main container -->
 <div class="container-fluid p-0">
