@@ -100,7 +100,7 @@ function modify_group_interest($groupname,$interests){
 	$groupID = get_groupID($groupname);
 	for ($i=0;$i<INTEREST_COUNT;$i++)) {
 		if (in_array($i, $interests) && (!exist_group_interest($groupID,$i))){
-			$query = 'INSERT INTO groupinterest
+			$query = 'INSERT INTO groupInterest
 					VALUES(:groupID,:interestID)';
 			$statement = $db->prepare($query);
 			$statement->bindValue(':groupID',$groupID);
@@ -109,7 +109,7 @@ function modify_group_interest($groupname,$interests){
 			$statement->closeCursor();
 		}
 		elseif ((!in_array($i, $interests)) && exist_group_interest($groupID,$i) ) {
-			$query = 'DELETE FROM groupinterest
+			$query = 'DELETE FROM groupInterest
 					WHERE groupID = :groupID AND interestID = :interestID';
 			$statement = $db->prepare($query);
 			$statement->bindValue(':groupID',$groupID);
@@ -123,7 +123,7 @@ function modify_group_interest($groupname,$interests){
 #check if a group has a specific interest
 function exist_group_interest($groupID,$interestID){
 	global $db;
-	$query = 'SELECT * FROM groupinterest
+	$query = 'SELECT * FROM groupInterest
 			WHERE groupID = :groupID AND interestID = :interestID';
 			$statement = $db->prepare($query);
 			$statement->bindValue(':groupID',$groupID);
@@ -139,7 +139,7 @@ function exist_group_interest($groupID,$interestID){
 
 function list_groupIDs_by_interest($interestID){
 	global $db;
-	$query = 'SELECT groupID FROM groupinterest
+	$query = 'SELECT groupID FROM groupInterest
 			WHERE interestID = :interestID';
 			$statement = $db->prepare($query);
 			$statement->bindValue(':interestID',$interestID);
