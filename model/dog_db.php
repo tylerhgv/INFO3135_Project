@@ -30,9 +30,26 @@ function getDog($user_id){
     return NULL;
 }
 
-function updateDog(){
-    
+function updateDog($dog_id, $dog_name, $dog_breed, $dog_gender, $dog_dob, $dog_adopt_date){
+    global $db;
+    $query = "UPDATE dog 
+                SET name = :dog_name,
+                breed = :dog_breed,
+                gender = :dog_gender,
+                dob = CAST(:dog_dob AS DATETIME),
+                adoptedDate = CAST(:dog_adopt_date AS DATETIME)
+                WHERE dogID = :dog_id";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':dog_name', $dog_name);
+    $statement->bindValue(':dog_breed', $dog_breed);
+    $statement->bindValue(':dog_gender', $dog_gender);
+    $statement->bindValue(':dog_dob', $dog_dob);
+    $statement->bindValue(':dog_adopt_date', $dog_adopt_date);
+    $statement->bindValue(':dog_id', $dog_id);
+    $statement->execute();
+    $statement->closeCursor();
 }
+
 
 function deleteDog(){
 

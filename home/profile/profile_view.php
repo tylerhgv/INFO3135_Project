@@ -14,12 +14,20 @@ include '../../view/header.php';
         echo $_SESSION['profile_location'] . '<br>';
         echo $_SESSION['profile_email'] . '<br>';
 
+        $dog_index = 0;
         foreach($_SESSION['profile_dogs'] as $dog){
             echo $dog['name'] . '<br>';
             echo $dog['breed'] . '<br>';
             echo $dog['gender'] . '<br>';
             echo $dog['dob'] . '<br>';
             echo $dog['adoptedDate'] . '<br>';
+            ?>
+                <form action="dog_edit.php" method="post">
+                <input type="hidden" name="dog_index" value="<?php echo $dog_index; ?>">
+                    <button type="submit" class="link">Edit Dog</button>
+                </form> 
+             <?php
+             $dog_index = $dog_index + 1;
         }
 
 ?>
@@ -27,6 +35,7 @@ include '../../view/header.php';
 <h1>WELCOME BACK</h1>
 
 <img src="profilePics/<?php echo $_SESSION['profile_pic']; ?>">
+<a href="profile_edit.php">Edit Profile</a>
 <a href="profile_edit.php">Edit Profile</a>
 
 

@@ -1,6 +1,5 @@
 <?php include '../view/header.php'; ?>
 <?php
-session_start();
 //Check if the user is signed in
 if(empty($_SESSION['signedin']) || $_SESSION['signedin'] != true){
     header('location: ../index.php');
