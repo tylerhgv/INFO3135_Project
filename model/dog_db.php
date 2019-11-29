@@ -30,4 +30,12 @@ function getDog($user_id){
     return NULL;
 }
 
+function updateDog(){
+    
+}
+
+function deleteDog(){
+
+}
+
 ?>
