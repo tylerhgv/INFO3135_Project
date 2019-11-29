@@ -1,5 +1,18 @@
+body {
+  background-color: PaleTurquoise;
+}
 .test {
   border: 1px solid black;
-  min-height: 500px;
   background-color: red;
+}
+.middle-height {
+  min-height: 600px;
+}
+.right-scroll {
+  overflow-y: scroll;
+  max-height: 600px;
+}
+.middle-scroll {
+  overflow-y: scroll;
+  max-height: 600px;
 }
