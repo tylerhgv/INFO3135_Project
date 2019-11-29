@@ -1,4 +1,5 @@
 <?php
+session_start();
 // If the user is already signed in, send them to the home page
 if(isset($_SESSION['signedin']) && $_SESSION['signedin'] === true){
       header('location: ../home/index.php');
