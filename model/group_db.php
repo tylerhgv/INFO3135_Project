@@ -57,12 +57,12 @@ function modify_group($groupname,$description,$profilePic){
 	if ($profilePic == NULL){
 		$query = 'UPDATE group_
 			SET description = :description
-			WHERE name = :groupname'
+			WHERE name = :groupname';
 	} else {
 		$query = 'UPDATE group_
 			SET description = :description,
 				profilePic = :profilePic
-			WHERE name = :groupname'
+			WHERE name = :groupname';
 	}
 	$statement = $db->prepare($query);
 	$statement->bindValue(':groupname',$groupname);
@@ -75,7 +75,7 @@ function modify_group($groupname,$description,$profilePic){
 function join_group($userID,$groupID){
 	global $db;
 	$query = 'INSERT INTO usergroup
-			VALUES(:userID,:groupID,'0')';
+			VALUES(:userID,:groupID,"0")';
 	$statement = $db->prepare($query);
 	$statement->bindValue(':userID',$userID);
 	$statement->bindValue(':groupID',$groupID);
@@ -98,7 +98,7 @@ function leave_group($userID,$groupID){
 function modify_group_interest($groupname,$interests){
 	global $db;
 	$groupID = get_groupID($groupname);
-	for ($i=0;$i<INTEREST_COUNT;$i++)) {
+	for ($i=0;$i<INTEREST_COUNT;$i++) {
 		if (in_array($i, $interests) && (!exist_group_interest($groupID,$i))){
 			$query = 'INSERT INTO groupInterest
 					VALUES(:groupID,:interestID)';
@@ -147,5 +147,29 @@ function list_groupIDs_by_interest($interestID){
 			$groupIDs = $statement->fetchAll();
 			$statement->closeCursor();
 			return $groupIDs;
+}
+
+function get_group_by_id($groupID) {
+  global $db;
+  $query = 'SELECT * FROM group_
+            WHERE groupID = :groupID';
+  $statement = $db->prepare($query);
+  $statement->bindValue(":groupID", $groupID);
+  $statement->execute();
+  $group = $statement->fetchAll();
+  $statement->closeCursor();
+  return $group[0];
+}
+
+function get_groups_by_userid($userID) {
+  global $db;
+  $query = 'SELECT groupID FROM usergroup
+            WHERE userID = :userID';
+  $statement = $db->prepare($query);
+  $statement->bindValue(":userID", $userID);
+  $statement->execute();
+  $groupIDs = $statement->fetchAll();
+  $statement->closeCursor();
+  return $groupIDs;
 }
 ?>

@@ -1,5 +1,7 @@
 <?php include '../../view/header.php'; ?>
 <?php
+require('../../model/database.php');
+require('../../model/group_db.php');
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -8,6 +10,8 @@ if(empty($_SESSION['signedin']) || $_SESSION['signedin'] != true){
     header('location: ../../index.php');
     exit();
 }
+//Get information to display
+$groupIDs = get_groups_by_userid($_SESSION['userId']);
 ?>
 <!-- Main container -->
 <div class="container-fluid p-0">
@@ -17,7 +21,7 @@ if(empty($_SESSION['signedin']) || $_SESSION['signedin'] != true){
       <div class="card">
         <h4 class="card-header">Group</h4>
         <div class="list-group-flush">
-          <a href="#" class="list-group-item list-group-item-action">Create New Group</a>
+          <a href="group_add.php" class="list-group-item list-group-item-action">Create New Group</a>
         </div>
       </div>
     </div>
@@ -109,51 +113,24 @@ if(empty($_SESSION['signedin']) || $_SESSION['signedin'] != true){
       <div class="card">
         <h4 class="card-header">My Groups</h4>
         <div class="card-body p-3 right-scroll">
-          <div class="card">
-            <div class="row no-gutters">
-              <div class="col-md-3">
-                <img src="#" class="card-img" alt="Group's Profile Picture">
-              </div>
-              <div class="col-md-9">
-                <div class="card-body">
-                  <h5 class="card-title">Group Name</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Topics: interest1, interest2</h6>
-                  <p class="card-text">Group description Group description Group description Group description Group description Group description</p>
-                  <a href="#" class="btn btn-primary">Go to Group</a>
+          <?php foreach($groupIDs as $groupID) { ?>
+            <?php $group = get_group_by_id($groupID['groupID']); ?>
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-3">
+                  <img src="profilePics/<?php echo $group['profilePic']; ?>" class="card-img" alt="Group's Profile Picture">
+                </div>
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo $group['name']; ?></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Topics: interest1, interest2</h6>
+                    <p class="card-text"><?php echo $group['description']; ?></p>
+                    <a href="#" class="btn btn-primary">Visit Group</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card mt-3">
-            <div class="row no-gutters">
-              <div class="col-md-3">
-                <img src="#" class="card-img" alt="Group's Profile Picture">
-              </div>
-              <div class="col-md-9">
-                <div class="card-body">
-                  <h5 class="card-title">Group Name</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Topics: interest1, interest2</h6>
-                  <p class="card-text">Group description Group description Group description Group description Group description Group description</p>
-                  <a href="#" class="btn btn-primary">Go to Group</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card mt-3">
-            <div class="row no-gutters">
-              <div class="col-md-3">
-                <img src="#" class="card-img" alt="Group's Profile Picture">
-              </div>
-              <div class="col-md-9">
-                <div class="card-body">
-                  <h5 class="card-title">Group Name</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Topics: interest1, interest2</h6>
-                  <p class="card-text">Group description Group description Group description Group description Group description Group description</p>
-                  <a href="#" class="btn btn-primary">Go to Group</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </div>

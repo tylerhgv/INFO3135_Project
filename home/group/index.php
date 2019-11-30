@@ -1,4 +1,6 @@
 <?php
+require('../../model/database.php');
+require('../../model/group_db.php');
 session_start();
 
 //Check if the user is signed in
@@ -7,11 +9,25 @@ if(empty($_SESSION['signedin']) || $_SESSION['signedin'] != true){
     exit();
 }
 
-// script to handle header action
+// script to handle header & other action
 if(isset($_GET['action']) && $_GET['action'] != ""){
     $action = $_GET['action'];
     if(isset($action) && $action != ""){
         switch($action){
+            case "create_group":
+                $userID = filter_input(INPUT_POST, 'user_id');
+                $groupName = filter_input(INPUT_POST, 'group_name');
+                $groupDesc = filter_input(INPUT_POST, 'group_desc');
+                $profilePic = $_FILES['group_profile']['name'];
+
+                $profilePic = $userID . "_" . preg_replace ("/\s+/ ", "_", $profilePic);
+                $storage = "profilePics/".basename($profilePic);
+
+                add_group($groupName,$groupDesc,$profilePic,$userID);
+                copy($_FILES['group_profile']['tmp_name'], $storage);
+
+                header('location: group_list.php');
+                break;
             case "home":
                 header('location: ../index.php');
                 break;
