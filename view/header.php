@@ -11,7 +11,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-end">
-      <a class="navbar-brand mr-auto" href="index.php?action=home">DogApp</a>
+      <a class="navbar-brand mr-auto" href="index.php?action=home">Barkbook</a>
       <?php
         // Navbar changes dynamically
         if (isset($_SESSION['signedin']) && $_SESSION['signedin'] === true) {
