@@ -17,7 +17,7 @@ if(empty($_SESSION['signedin']) || $_SESSION['signedin'] != true){
       <div class="card">
         <h4 class="card-header">Home</h4>
         <div class="list-group list-group-flush">
-          <a href="#" class="list-group-item list-group-item-action">My Profile</a>
+          <a href="profile/index.php" class="list-group-item list-group-item-action">My Profile</a>
           <a href="#mygroup-left" data-toggle="collapse" class="list-group-item list-group-item-action">My Group</a>
         </div>
         <div class="list-group-flush collapse" id="mygroup-left">
