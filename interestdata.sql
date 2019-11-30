@@ -1,0 +1,11 @@
+use dogappdb;
+insert into interest(name) values('agility');
+insert into interest(name) values('walking');
+insert into interest(name) values('swimming');
+insert into interest(name) values('nosework');
+insert into interest(name) values('obedience');
+insert into interest(name) values('puppy training');
+insert into interest(name) values('playdates');
+insert into interest(name) values('grooming');
+insert into interest(name) values('cooking');
+insert into interest(name) values('dock jumping');
