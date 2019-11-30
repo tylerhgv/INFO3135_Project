@@ -1,5 +1,5 @@
 <?php
-define(INTEREST_COUNT, 10);
+define('INTEREST_COUNT', 10);
 
 function get_interest_by_ID($interestID){
 	global $db;
